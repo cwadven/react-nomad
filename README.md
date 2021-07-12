@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# 노마드 코더 온라인 강의
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React 부족한 점을 찾기 위해 처음부터 공부해보기
 
-## Available Scripts
+> NOT SHARED YET
 
-In the project directory, you can run:
+# Fundamentals
 
-### `yarn start`
+[1.1 Arrow Functions](https://www.notion.so/1-1-Arrow-Functions-423a22224cc44d0a8b0bf85a168bd5dd)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[1.2 Template Literals](https://www.notion.so/1-2-Template-Literals-a6d2f509df3346cebb5ddbb3b8cca8aa)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[1.3 Object Destructuring](https://www.notion.so/1-3-Object-Destructuring-f9bf868ff3a2418e9a0d238c28e62084)
 
-### `yarn test`
+[1.4 Spread Operator](https://www.notion.so/1-4-Spread-Operator-659d8ec7f6af46a48c8939db6f7922cc)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[1.5 Classes](https://www.notion.so/1-5-Classes-19d02713ae2643aabd6813524a02239c)
 
-### `yarn build`
+[1.6 Array map](https://www.notion.so/1-6-Array-map-08a22557b77e41f293bb227efa053618)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[1.7 Array Filter](https://www.notion.so/1-7-Array-Filter-7c3e7a32825144378680f443faeca2ea)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[1.8 forEach includes push](https://www.notion.so/1-8-forEach-includes-push-c8c94aa171da4c8198ff642be72960e5)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Project Setup
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[2.0 Setting Up the Project](https://www.notion.so/2-0-Setting-Up-the-Project-d7b6b71373654339bde3cc4c2abb7192)
