@@ -25,3 +25,7 @@ React 부족한 점을 찾기 위해 처음부터 공부해보기
 # Project Setup
 
 [2.0 Setting Up the Project](https://www.notion.so/2-0-Setting-Up-the-Project-d7b6b71373654339bde3cc4c2abb7192)
+
+[2.1 React Router Part One](https://www.notion.so/2-1-React-Router-Part-One-e2a2002647cf461cab162407f9dd6d0d)
+
+[2.2 React Router Part Two](https://www.notion.so/2-2-React-Router-Part-Two-c5f8eb7b6ada45438cabeed5e639f465)
