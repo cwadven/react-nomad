@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TVPresenter from './TVPresenter';
+import { tvApi } from '../../api';
 
 const TVContainer = () => {
     const [top_rated_set, setTopRatedSet] = useState(null);
@@ -8,6 +9,28 @@ const TVContainer = () => {
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    useEffect(async () => {
+        try {
+            const {
+                data: { results: results_top_rated_set },
+            } = await tvApi.topRated();
+            const {
+                data: { results: results_popular_set },
+            } = await tvApi.popular();
+            const {
+                data: { results: results_airing_today_set },
+            } = await tvApi.airingToday();
+
+            setTopRatedSet(results_top_rated_set);
+            setAiringTodaySet(results_popular_set);
+            setPopularSet(results_airing_today_set);
+        } catch (err) {
+            setError("Can't find movies informaiton.");
+        } finally {
+            setLoading(false);
+        }
+    }, []);
 
     return (
         <TVPresenter
