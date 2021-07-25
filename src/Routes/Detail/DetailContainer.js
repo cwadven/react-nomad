@@ -25,13 +25,9 @@ const DetailContainer = props => {
         let result = null;
         try {
             if (isMovie) {
-                ({
-                    data: { result },
-                } = await movieApi.movieDetail(parsedId));
+                ({ data: result } = await movieApi.movieDetail(parsedId));
             } else {
-                ({
-                    data: { result },
-                } = await tvApi.showDetail(parsedId));
+                ({ data: result } = await tvApi.showDetail(parsedId));
             }
         } catch (err) {
             setError("Can't find anything.");
