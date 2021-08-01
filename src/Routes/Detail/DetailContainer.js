@@ -32,8 +32,8 @@ const DetailContainer = props => {
         } catch (err) {
             setError("Can't find anything.");
         } finally {
-            setLoading(false);
             setResult(result);
+            setLoading(false);
         }
         if (isMovie) {
         }
