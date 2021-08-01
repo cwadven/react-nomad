@@ -3,9 +3,9 @@ import TVPresenter from './TVPresenter';
 import { tvApi } from '../../api';
 
 const TVContainer = () => {
-    const [top_rated_set, setTopRatedSet] = useState(null);
-    const [airing_today_set, setAiringTodaySet] = useState(null);
-    const [popular_set, setPopularSet] = useState(null);
+    const [topRated, setTopRated] = useState(null);
+    const [airingToday, setAiringToday] = useState(null);
+    const [popular, setPopular] = useState(null);
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,9 +22,9 @@ const TVContainer = () => {
                 data: { results: results_airing_today_set },
             } = await tvApi.airingToday();
 
-            setTopRatedSet(results_top_rated_set);
-            setAiringTodaySet(results_popular_set);
-            setPopularSet(results_airing_today_set);
+            setTopRated(results_top_rated_set);
+            setAiringToday(results_popular_set);
+            setPopular(results_airing_today_set);
         } catch (err) {
             setError("Can't find movies informaiton.");
         } finally {
@@ -34,9 +34,9 @@ const TVContainer = () => {
 
     return (
         <TVPresenter
-            top_rated_set={top_rated_set}
-            airing_today_set={airing_today_set}
-            popular_set={popular_set}
+            topRated={topRated}
+            airingToday={airingToday}
+            popular={popular}
             error={error}
             loading={loading}
         />
