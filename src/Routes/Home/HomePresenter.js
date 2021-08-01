@@ -18,7 +18,18 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) =>
             {upcoming && upcoming.length > 0 && (
                 <Section title="Upcoming Movies">
                     {upcoming.map(movie => (
-                        <Poster key={movie.id} />
+                        <Poster
+                            id={movie.id}
+                            key={movie.id}
+                            title={movie.original_title}
+                            imageUrl={movie.poster_path}
+                            rating={movie.vote_average}
+                            year={
+                                movie.release_date &&
+                                movie.release_date.substring(0, 4)
+                            }
+                            isMovie
+                        />
                     ))}
                 </Section>
             )}
@@ -26,7 +37,18 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) =>
             {nowPlaying && nowPlaying.length > 0 && (
                 <Section title="Now Playing Movies">
                     {nowPlaying.map(movie => (
-                        <Poster key={movie.id} />
+                        <Poster
+                            id={movie.id}
+                            key={movie.id}
+                            title={movie.original_title}
+                            imageUrl={movie.poster_path}
+                            rating={movie.vote_average}
+                            year={
+                                movie.release_date &&
+                                movie.release_date.substring(0, 4)
+                            }
+                            isMovie
+                        />
                     ))}
                 </Section>
             )}
@@ -34,7 +56,18 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) =>
             {popular && popular.length > 0 && (
                 <Section title="Popular Movies">
                     {popular.map(movie => (
-                        <Poster key={movie.id} />
+                        <Poster
+                            id={movie.id}
+                            key={movie.id}
+                            title={movie.original_title}
+                            imageUrl={movie.poster_path}
+                            rating={movie.vote_average}
+                            year={
+                                movie.release_date &&
+                                movie.release_date.substring(0, 4)
+                            }
+                            isMovie
+                        />
                     ))}
                 </Section>
             )}
