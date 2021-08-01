@@ -7,7 +7,7 @@ const DetailContainer = props => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const isMovie = useState(props.location.pathname.includes('/movie/'));
+    const [isMovie, _] = useState(props.location.pathname.includes('/movie/'));
 
     useEffect(async () => {
         const {
@@ -22,6 +22,8 @@ const DetailContainer = props => {
             return push('/');
         }
 
+        console.log(isMovie);
+
         let result = null;
         try {
             if (isMovie) {
@@ -34,8 +36,6 @@ const DetailContainer = props => {
         } finally {
             setResult(result);
             setLoading(false);
-        }
-        if (isMovie) {
         }
     }, []);
 
