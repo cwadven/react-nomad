@@ -17,10 +17,11 @@
     "react"
   ],
   "rules": {
-    "indent": [
-      "error",
-      4
-    ],
+//    "indent": [
+//      "error",
+//      4
+//    ],
+    "indent": "off",
     "semi": [
       "error",
       "always"
