@@ -10,6 +10,7 @@ import TV from '../Routes/TV';
 import Search from '../Routes/Search';
 import Detail from '../Routes/Detail';
 import Header from './Header';
+import Collection from '../Routes/Collection';
 
 // eslint-disable-next-line react/display-name
 export default () => (
@@ -22,6 +23,7 @@ export default () => (
             <Route path={'/search'} exact component={Search} />
             <Route path={'/movie/:id'} component={Detail} />
             <Route path={'/show/:id'} component={Detail} />
+            <Route path={'/collection/:id'} component={Collection} />
             <Redirect from={'*'} to={'/'} />
         </Switch>
     </Router>
