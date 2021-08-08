@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet';
 import Loader from '../../Components/Loader';
 import Section from '../../Components/Section';
 import Poster from '../../Components/Poster';
+import Message from '../../Components/Message';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -60,7 +62,7 @@ const OverView = styled.p`
     margin-bottom: 30px;
 `;
 
-const CollectionPresenter = ({ result, loading }) =>
+const CollectionPresenter = ({ result, loading, error }) =>
     loading ? (
         <>
             <Helmet>
@@ -68,6 +70,8 @@ const CollectionPresenter = ({ result, loading }) =>
             </Helmet>
             <Loader />
         </>
+    ) : error ? (
+        <Message text={error} color="red" />
     ) : (
         <Container>
             <Helmet>
@@ -109,4 +113,11 @@ const CollectionPresenter = ({ result, loading }) =>
             </Content>
         </Container>
     );
+
+CollectionPresenter.propTypes = {
+    result: PropTypes.object,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
+};
+
 export default CollectionPresenter;

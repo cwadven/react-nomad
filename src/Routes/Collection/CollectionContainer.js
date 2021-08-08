@@ -26,7 +26,13 @@ const CollectionContainer = props => {
         }
     }, []);
 
-    return <CollectionPresenter result={collection} loading={loading} />;
+    return (
+        <CollectionPresenter
+            result={collection}
+            loading={loading}
+            error={error}
+        />
+    );
 };
 
 export default CollectionContainer;
