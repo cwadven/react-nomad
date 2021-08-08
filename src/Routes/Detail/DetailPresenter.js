@@ -324,7 +324,6 @@ const DetailPresenter = ({
                         </ProductionCountryContent>
                     )}
                 </Data>
-                {console.log(result)}
             </Content>
         </Container>
     );
