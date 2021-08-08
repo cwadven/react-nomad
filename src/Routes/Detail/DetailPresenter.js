@@ -309,13 +309,17 @@ const DetailPresenter = ({
                         <Item>
                             {result.release_date
                                 ? result.release_date.substring(0, 4)
-                                : result.first_air_date.substring(0, 4)}
+                                : result.first_air_date
+                                ? result.first_air_date.substring(0, 4)
+                                : '????'}
                         </Item>
                         <Divider>◾</Divider>
                         <Item>
                             {result.runtime
                                 ? result.runtime
-                                : result.episode_run_time[0]}{' '}
+                                : result.episode_run_time
+                                ? result.episode_run_time[0]
+                                : '??'}{' '}
                             min
                         </Item>
                         <Divider>◾</Divider>
@@ -351,7 +355,7 @@ const DetailPresenter = ({
                             {result.belongs_to_collection.name}
                         </Collection>
                     )}
-                    {result.seasons.length > 0 && (
+                    {result.seasons && result.seasons.length > 0 && (
                         <SeasonWrapper style={{ display: 'flex' }}>
                             {result.seasons.map(season => (
                                 <SeasonItem
