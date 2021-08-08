@@ -50,7 +50,6 @@ const DetailContainer = props => {
         try {
             if (isMovie) {
                 ({ data: result } = await movieApi.movieDetail(parsedId));
-                console.log(result);
             } else {
                 ({ data: result } = await tvApi.showDetail(parsedId));
             }
