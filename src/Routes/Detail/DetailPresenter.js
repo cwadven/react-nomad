@@ -73,6 +73,37 @@ const OverView = styled.p`
     width: 50%;
 `;
 
+const Collection = styled.div`
+    display: flex;
+    position: relative;
+    width: 300px;
+    height: 169px;
+    font-size: 15px;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.6;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('${props => props.bgImage}');
+        z-index: -1;
+        border-radius: 10px;
+        transition: 0.2s linear;
+    }
+`;
+
 const ImdbBadge = styled.div`
     display: inline-block;
     background-color: #edbf17;
@@ -252,6 +283,13 @@ const DetailPresenter = ({
                         )}
                     </ItemContainer>
                     <OverView>{result.overview}</OverView>
+                    {result.belongs_to_collection && (
+                        <Collection
+                            bgImage={`https://image.tmdb.org/t/p/w300${result.belongs_to_collection.backdrop_path}`}
+                        >
+                            {result.belongs_to_collection.name}
+                        </Collection>
+                    )}
                     <Tab>
                         {tab.map(item => {
                             return (
