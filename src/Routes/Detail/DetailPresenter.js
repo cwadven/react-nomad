@@ -79,12 +79,70 @@ const Collection = styled.div`
     width: 300px;
     height: 169px;
     font-size: 15px;
+    font-weight: bold;
     text-align: center;
     background-position: center center;
     background-repeat: no-repeat;
     margin-top: 50px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
+    &:hover:after {
+        background-size: 120%;
+        opacity: 0.8;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.6;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('${props => props.bgImage}');
+        z-index: -1;
+        border-radius: 10px;
+        transition: 0.2s linear;
+    }
+`;
+
+const SeasonWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+const SeasonItem = styled.div`
+    display: flex;
+    position: relative;
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s linear;
+
+    &:hover:after {
+        background-size: 120%;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
 
     &::after {
         content: '';
@@ -286,9 +344,27 @@ const DetailPresenter = ({
                     {result.belongs_to_collection && (
                         <Collection
                             bgImage={`https://image.tmdb.org/t/p/w300${result.belongs_to_collection.backdrop_path}`}
+                            onClick={() => {
+                                window.location.href = `/collection/${result.belongs_to_collection.id}`;
+                            }}
                         >
                             {result.belongs_to_collection.name}
                         </Collection>
+                    )}
+                    {result.seasons.length > 0 && (
+                        <SeasonWrapper style={{ display: 'flex' }}>
+                            {result.seasons.map(season => (
+                                <SeasonItem
+                                    key={season.id}
+                                    bgImage={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
+                                    onClick={() => {
+                                        window.location.href = `/show/${season.id}`;
+                                    }}
+                                >
+                                    {season.name}
+                                </SeasonItem>
+                            ))}
+                        </SeasonWrapper>
                     )}
                     <Tab>
                         {tab.map(item => {
