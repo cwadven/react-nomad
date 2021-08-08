@@ -12,6 +12,10 @@ const Container = styled.div`
     padding: 50px;
 `;
 
+const ALink = styled.a`
+    color: #ffe998;
+`;
+
 const Backdrop = styled.div`
     position: absolute;
     top: 0;
@@ -44,7 +48,7 @@ const Cover = styled.div`
 
 const Data = styled.div`
     width: 70%;
-    margin-left: 10px;
+    margin-left: 20px;
 `;
 
 const Title = styled.h3`
@@ -69,7 +73,113 @@ const OverView = styled.p`
     width: 50%;
 `;
 
-const DetailPresenter = ({ result, loading, error }) =>
+const ImdbBadge = styled.div`
+    display: inline-block;
+    background-color: #edbf17;
+    color: black;
+    padding: 3px;
+    width: 50px;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.2s linear;
+    &:hover {
+        background-color: #ffe998;
+    }
+`;
+
+const Tab = styled.div`
+    display: flex;
+    margin-top: 50px;
+`;
+
+const TabItem = styled.div`
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-bottom: 2px solid
+        ${props => (props.isSelected ? '#edbf17' : '#cccccc')};
+    cursor: pointer;
+    transition: border-bottom 0.2s linear;
+    &:hover {
+        border-bottom: 2px solid #ffe998;
+    }
+`;
+
+const YoutubeVideoContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+`;
+
+const YoutubeVideoTitle = styled.div`
+    font-size: 20px;
+    margin: 20px;
+`;
+
+const ProductionCompanyContent = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+`;
+
+const ProductCompany = styled.div`
+    position: relative;
+    margin: 20px;
+    display: flex;
+    color: #ffe998;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+
+    &:hover:after {
+        background-size: 80%;
+        opacity: 1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.6;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('${props => props.logo_path}');
+        z-index: -1;
+        transition: 0.2s linear;
+    }
+`;
+
+const ProductionCountryContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+`;
+
+const ProductionCountry = styled.div`
+    margin: 20px;
+    font-size: 20px;
+`;
+
+const DetailPresenter = ({
+    result,
+    loading,
+    error,
+    tab,
+    tabIndex,
+    setTabIndex,
+}) =>
     loading ? (
         <>
             <Helmet>
@@ -128,9 +238,93 @@ const DetailPresenter = ({ result, loading, error }) =>
                                         : `${genre.name}/`,
                                 )}
                         </Item>
+                        {result.imdb_id && (
+                            <>
+                                <Divider>◾</Divider>
+                                <a
+                                    href={`https://www.imdb.com/title/${result.imdb_id}`}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <ImdbBadge>IMDb</ImdbBadge>
+                                </a>
+                            </>
+                        )}
                     </ItemContainer>
                     <OverView>{result.overview}</OverView>
+                    <Tab>
+                        {tab.map(item => {
+                            return (
+                                <TabItem
+                                    key={item.id}
+                                    isSelected={item.id === tabIndex}
+                                    onClick={() => {
+                                        setTabIndex(item.id);
+                                    }}
+                                >
+                                    {item.name}
+                                </TabItem>
+                            );
+                        })}
+                    </Tab>
+                    {tabIndex === 1 && (
+                        <YoutubeVideoContent>
+                            {result.videos?.results.map(item => {
+                                return (
+                                    <div key={item.id}>
+                                        <YoutubeVideoTitle>
+                                            <ALink
+                                                href={`https://www.youtube.com/watch?v=${item.key}`}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                            >
+                                                {item.name}
+                                            </ALink>
+                                        </YoutubeVideoTitle>
+                                    </div>
+                                );
+                            })}
+                        </YoutubeVideoContent>
+                    )}
+                    {tabIndex === 2 && (
+                        <ProductionCompanyContent>
+                            {result.production_companies?.map(item => {
+                                return (
+                                    <ProductCompany
+                                        key={item.id}
+                                        logo_path={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
+                                        onClick={() => {
+                                            window.open(
+                                                `https://en.wikipedia.org/wiki/${item.name}`,
+                                                '_blank',
+                                            );
+                                        }}
+                                    >
+                                        {item.name}
+                                    </ProductCompany>
+                                );
+                            })}
+                        </ProductionCompanyContent>
+                    )}
+                    {tabIndex === 3 && (
+                        <ProductionCountryContent>
+                            {result.production_countries?.map(item => {
+                                return (
+                                    <ProductionCountry key={item.iso_3166_1}>
+                                        <ALink
+                                            href={`https://en.wikipedia.org/wiki/${item.name}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            {item.name}
+                                        </ALink>
+                                    </ProductionCountry>
+                                );
+                            })}
+                        </ProductionCountryContent>
+                    )}
                 </Data>
+                {console.log(result)}
             </Content>
         </Container>
     );
@@ -139,6 +333,9 @@ DetailPresenter.propTypes = {
     result: PropTypes.object,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string,
+    tab: PropTypes.array,
+    tabIndex: PropTypes.number,
+    setTabIndex: PropTypes.func,
 };
 
 export default DetailPresenter;
