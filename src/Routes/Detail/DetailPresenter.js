@@ -362,7 +362,7 @@ const DetailPresenter = ({
                                     key={season.id}
                                     bgImage={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
                                     onClick={() => {
-                                        window.location.href = `/show/${season.id}`;
+                                        window.location.href = `/show/${result.id}/season/${season.season_number}`;
                                     }}
                                 >
                                     {season.name}
