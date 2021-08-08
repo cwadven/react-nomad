@@ -20,6 +20,10 @@ export const tvApi = {
         api.get('search/tv', {
             params: { query: encodeURIComponent(term) },
         }),
+    seasonDetail: (tvId, seasonNumber) =>
+        api.get(`/tv/${tvId}/season/${seasonNumber}`, {
+            params: { append_to_response: 'videos' },
+        }),
 };
 
 export const movieApi = {
