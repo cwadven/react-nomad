@@ -349,7 +349,7 @@ const DetailPresenter = ({
                         <Collection
                             bgImage={`https://image.tmdb.org/t/p/w300${result.belongs_to_collection.backdrop_path}`}
                             onClick={() => {
-                                window.location.href = `/collection/${result.belongs_to_collection.id}`;
+                                window.location.replace = `/collection/${result.belongs_to_collection.id}`;
                             }}
                         >
                             {result.belongs_to_collection.name}
@@ -362,7 +362,7 @@ const DetailPresenter = ({
                                     key={season.id}
                                     bgImage={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
                                     onClick={() => {
-                                        window.location.href = `/show/${result.id}/season/${season.season_number}`;
+                                        window.location.replace = `/show/${result.id}/season/${season.season_number}`;
                                     }}
                                 >
                                     {season.name}
