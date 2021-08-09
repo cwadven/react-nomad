@@ -32,7 +32,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://username.github.io/project_name",
+  "homepage": "https://nifty-lamarr-babd35.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
