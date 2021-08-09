@@ -349,9 +349,7 @@ const DetailPresenter = ({
                         <Collection
                             bgImage={`https://image.tmdb.org/t/p/w300${result.belongs_to_collection.backdrop_path}`}
                             onClick={() => {
-                                window.location.replace(
-                                    `https://nifty-lamarr-babd35.netlify.app/collection/${result.belongs_to_collection.id}`,
-                                );
+                                window.location.href = `https://nifty-lamarr-babd35.netlify.app/collection/${result.belongs_to_collection.id}`;
                             }}
                         >
                             {result.belongs_to_collection.name}
@@ -364,9 +362,7 @@ const DetailPresenter = ({
                                     key={season.id}
                                     bgImage={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
                                     onClick={() => {
-                                        window.location.replace(
-                                            `https://nifty-lamarr-babd35.netlify.app/show/${result.id}/season/${season.season_number}`,
-                                        );
+                                        window.location.href = `https://nifty-lamarr-babd35.netlify.app/show/${result.id}/season/${season.season_number}`;
                                     }}
                                 >
                                     {season.name}
