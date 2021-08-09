@@ -1,3 +1,5 @@
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c75dcc76-7d9d-49e8-9cc4-956cf4c7f1bb/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c75dcc76-7d9d-49e8-9cc4-956cf4c7f1bb/Untitled.png)
+
 # Fundamentals
 
 [1.1 Arrow Functions](https://www.notion.so/1-1-Arrow-Functions-423a22224cc44d0a8b0bf85a168bd5dd)
@@ -79,3 +81,80 @@
 [6.3 SearchPresenter Component](https://www.notion.so/6-3-SearchPresenter-Component-5200a3c89ddd4b21b9be79986bfe49de)
 
 [6.4 Message Component](https://www.notion.so/6-4-Message-Component-4e0674a1c8854c45a1fc98a388b9fcba)
+
+[6.5 Poster Component part One](https://www.notion.so/6-5-Poster-Component-part-One-d10f6d6d09dd418a93d51015c388482c)
+
+[6.6 Rendering Poster Component](https://www.notion.so/6-6-Rendering-Poster-Component-9f31048a94ba491dbffff06a09f9932c)
+
+[6.7 Poster Component part Two](https://www.notion.so/6-7-Poster-Component-part-Two-52a2826e29b04ebb905ce3ec2889a20d)
+
+[6.8 Detail Container part One](https://www.notion.so/6-8-Detail-Container-part-One-1aa4bd892b4c4553a4516f99e887789e)
+
+[6.9 Detail Container part Two](https://www.notion.so/6-9-Detail-Container-part-Two-ffa4be0d87d04c43a2b04958cbff4a3e)
+
+[6.10 React Helmet](https://www.notion.so/6-10-React-Helmet-8ba252542e42465181218188009b9921)
+
+[6.11 Code Challenges](https://www.notion.so/6-11-Code-Challenges-5405f0ced3eb477f9ea58d59d05461f7)
+
+# Deployment
+
+[7.0 Deploy to Github Pages](https://www.notion.so/7-0-Deploy-to-Github-Pages-1b571b6c412d469fb323bad63bfe6327)
+
+[7.1 Deploying to Netlify](https://www.notion.so/7-1-Deploying-to-Netlify-3f41654ce0424a2d8b452d3d58399fdf)
+
+**팁
+[HTML]**
+- `span` 에는 `margin` 사용할 수 없다.
+
+**[CSS]**
+- `:not(:last-child)` 같이 마지막 요소를 제외하고, 스타일을 적용할 수 있다.
+- `background-image` 투명도 조정 방법
+`after` 객체를 만들어 `position: relative` 와 `position: absolute` 를 이용하여 적절하게 조작한다.
+`after` 객체에는 `z-index:-1` 로 뒤쪽에 있도록 한다.
+const Collection = styled.div`
+    display: flex;
+    position: relative;
+    width: 300px;
+    height: 169px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.6;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('${props => props.bgImage}');
+        z-index: -1;
+        border-radius: 10px;
+        transition: 0.2s linear;
+    }
+`;
+
+**[React]**
+- `children` 을 이용하여 `Section` 에 직접 값을 넘기자 → ***6.1 참조***
+- `React Helmet` 은 `index.html` 을 건들지 않고 가장 위쪽의 정보를 수정하는 경우 (meta 등) 사용한다. → ***6.10 참조***
+
+**[Styled Component]
+- `&:hover`** 사용할 때, 다른 태그를 넣어서 작동 시킬 수 있다.
+&:hover {
+      ${Image} {
+          opacity: 0.4;
+      }
+      ${Rating} {
+          opacity: 1;
+      }
+}
