@@ -19,40 +19,40 @@ export default () => (
         <Header />
         <Switch>
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/'}
+                path={'nifty-lamarr-babd35.netlify.app/'}
                 exact
                 component={Home}
             />
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/tv'}
+                path={'nifty-lamarr-babd35.netlify.app/tv'}
                 exact
                 component={TV}
             />
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/tv/popular'}
+                path={'nifty-lamarr-babd35.netlify.app/tv/popular'}
                 render={() => <h1>Popular</h1>}
             />
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/search'}
+                path={'nifty-lamarr-babd35.netlify.app/search'}
                 exact
                 component={Search}
             />
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/movie/:id'}
+                path={'nifty-lamarr-babd35.netlify.app/movie/:id'}
                 component={Detail}
             />
             <Route
                 path={
-                    'https://nifty-lamarr-babd35.netlify.app/show/:id/season/:seasonNumber'
+                    'nifty-lamarr-babd35.netlify.app/show/:id/season/:seasonNumber'
                 }
                 component={Season}
             />
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/show/:id'}
+                path={'nifty-lamarr-babd35.netlify.app/show/:id'}
                 component={Detail}
             />
             <Route
-                path={'https://nifty-lamarr-babd35.netlify.app/collection/:id'}
+                path={'nifty-lamarr-babd35.netlify.app/collection/:id'}
                 component={Collection}
             />
             <Redirect from={'*'} to={'/'} />
